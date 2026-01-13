@@ -1,0 +1,20 @@
+import pandas as pd
+from evidently.report import Report
+from evidently.metric_preset import DataDriftPreset
+
+# Chargement (hypothèse suggérée par Mickael [cite: 218])
+df_train = pd.read_csv('data/application_train.csv').head(10000) # Échantillon
+df_test = pd.read_csv('data/application_test.csv').head(10000)
+
+# S'assurer que les colonnes sont identiques
+common_cols = [c for c in df_train.columns if c in df_test.columns]
+
+# Création du rapport
+report = Report(metrics=[
+    DataDriftPreset(),
+])
+
+report.run(reference_data=df_train[common_cols], current_data=df_test[common_cols])
+
+# Export HTML [cite: 91]
+report.save_html("Nom_Prénom_4_Tableau_HTML_data_drift.html")
