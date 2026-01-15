@@ -54,7 +54,7 @@ project_root/
 - **Python 3.8+**
 - Un fichier `requirements.txt` (dépendances Python)
 
-> ✅ Recommandé : utiliser un environnement virtuel (venv/conda) pour isoler les dépendances.
+>  Recommandé : utiliser un environnement virtuel (venv/conda) pour isoler les dépendances.
 
 ---
 
