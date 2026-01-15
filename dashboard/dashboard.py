@@ -6,8 +6,8 @@ import seaborn as sns
 import numpy as np
 
 # --- CONFIGURATION ---
-# L'URL de ton API (locale pour l'instant)
-API_URL = "http://127.0.0.1:5000/predict"
+# L'URL de mon API (locale pour l'instant)
+API_URL = "http://127.0.0.1:5001/predict"
 
 st.set_page_config(layout="wide")
 st.title("Tableau de Bord - Scoring Crédit")
@@ -16,7 +16,7 @@ st.title("Tableau de Bord - Scoring Crédit")
 @st.cache_data
 def load_data():
     # On charge les données DEJA traitées (mêmes colonnes que le modèle)
-    # Assure-toi que le chemin est correct par rapport à où tu lances le script
+    # On vérifie le chemin est correct par rapport à où tu lances le script
     try:
         df = pd.read_csv('model_production/test_sample_processed.csv')
         return df
